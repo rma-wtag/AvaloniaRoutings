@@ -8,6 +8,7 @@ public class HierarchicalViewModel : ViewModelBase, IRoutableViewModel , IScreen
 {
     public string? UrlPathSegment { get; } = "Hierarchical";
     public IScreen HostScreen { get; }
+    public ReactiveCommand<Unit, Unit> GoBack { get; }
     
     // Child router — dedicated region
     public RoutingState Router { get; } = new();
@@ -27,6 +28,11 @@ public class HierarchicalViewModel : ViewModelBase, IRoutableViewModel , IScreen
 
             var vm = (IRoutableViewModel)Activator.CreateInstance(vmType, this)!;
             Router.Navigate.Execute(vm).Subscribe();
+        });
+        
+        GoBack = ReactiveCommand.Create(() =>
+        {
+            ((MainWindowViewModel)HostScreen).ClosePage();
         });
         
     }

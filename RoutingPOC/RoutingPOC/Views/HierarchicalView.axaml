@@ -12,20 +12,23 @@
     
     <Grid RowDefinitions="Auto,*">
 
-        <!-- TOP BUTTONS -->
-        <StackPanel Orientation="Horizontal" Grid.Row="0" Spacing="10" Margin="10" HorizontalAlignment="Center">
-            <Button Content="Open A"
-                    Command="{Binding OpenChildPageCommand}"
-                    CommandParameter="ChildAView" />
+        <Grid ColumnDefinitions="Auto,*">
+            <Button Grid.Column="0" Margin="10 0 0 0" Content="Go Back" Command="{Binding GoBack}"></Button>
+            <!-- TOP BUTTONS -->
+            <StackPanel Grid.Column="1" Orientation="Horizontal" Grid.Row="0" Spacing="10" Margin="10" HorizontalAlignment="Center">
+                <Button Content="Open A"
+                        Command="{Binding OpenChildPageCommand}"
+                        CommandParameter="ChildAView" />
 
-            <Button Content="Open B"
-                    Command="{Binding OpenChildPageCommand}"
-                    CommandParameter="ChildBView" />
+                <Button Content="Open B"
+                        Command="{Binding OpenChildPageCommand}"
+                        CommandParameter="ChildBView" />
 
-            <Button Content="Open C"
-                    Command="{Binding OpenChildPageCommand}"
-                    CommandParameter="ChildCView" />
-        </StackPanel>
+                <Button Content="Open C"
+                        Command="{Binding OpenChildPageCommand}"
+                        CommandParameter="ChildCView" />
+            </StackPanel>
+        </Grid>
 
         <!-- CHILD ROUTER REGION -->
         <reactiveUi:RoutedViewHost Grid.Row="1" Router="{Binding Router}">
