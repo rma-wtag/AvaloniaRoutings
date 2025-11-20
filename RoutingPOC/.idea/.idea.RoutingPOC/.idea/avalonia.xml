@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="RoutingPOC/App.axaml" value="RoutingPOC/RoutingPOC.csproj" />
+        <entry key="RoutingPOC/Views/DashboardView.axaml" value="RoutingPOC/RoutingPOC.csproj" />
+        <entry key="RoutingPOC/Views/HomeVIew.axaml" value="RoutingPOC/RoutingPOC.csproj" />
+        <entry key="RoutingPOC/Views/MainWindow.axaml" value="RoutingPOC/RoutingPOC.csproj" />
+      </map>
+    </option>
+  </component>
+</project>
