@@ -13,7 +13,7 @@
     <Grid RowDefinitions="Auto,*">
 
         <!-- TOP BUTTONS -->
-        <StackPanel Orientation="Horizontal" Grid.Row="0" Spacing="10" Margin="10">
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Spacing="10" Margin="10" HorizontalAlignment="Center">
             <Button Content="Open A"
                     Command="{Binding OpenChildPageCommand}"
                     CommandParameter="ChildAView" />

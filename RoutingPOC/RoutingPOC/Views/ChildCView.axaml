@@ -6,5 +6,8 @@
              xmlns:vm="clr-namespace:RoutingPOC.ViewModels"
              x:DataType="vm:ChildCViewModel"
              x:Class="RoutingPOC.Views.ChildCView">
-    <TextBlock Text="This is Child C content" />
+    
+    <StackPanel Background="SlateBlue">
+        <TextBlock FontSize="18" Foreground="White" Text="This is Child C content" />
+    </StackPanel>
 </UserControl>

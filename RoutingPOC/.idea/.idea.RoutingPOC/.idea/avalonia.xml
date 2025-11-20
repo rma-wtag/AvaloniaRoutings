@@ -6,6 +6,7 @@
         <entry key="RoutingPOC/App.axaml" value="RoutingPOC/RoutingPOC.csproj" />
         <entry key="RoutingPOC/Views/ChildAView.axaml" value="RoutingPOC/RoutingPOC.csproj" />
         <entry key="RoutingPOC/Views/ChildBView.axaml" value="RoutingPOC/RoutingPOC.csproj" />
+        <entry key="RoutingPOC/Views/ChildCView.axaml" value="RoutingPOC/RoutingPOC.csproj" />
         <entry key="RoutingPOC/Views/DashboardView.axaml" value="RoutingPOC/RoutingPOC.csproj" />
         <entry key="RoutingPOC/Views/HierarchicalView.axaml" value="RoutingPOC/RoutingPOC.csproj" />
         <entry key="RoutingPOC/Views/HomeVIew.axaml" value="RoutingPOC/RoutingPOC.csproj" />
