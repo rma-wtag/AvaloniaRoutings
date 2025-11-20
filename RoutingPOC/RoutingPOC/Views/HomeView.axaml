@@ -6,9 +6,11 @@
              x:DataType="vm:HomeViewModel"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="RoutingPOC.Views.HomeView">
-    <StackPanel Spacing="10" Margin="20">
+    <StackPanel Spacing="10" Margin="20" HorizontalAlignment="Center">
         <TextBlock Text="Home View" FontSize="24" />
         <Button Content="Go To Dashboard"
                 Command="{Binding OpenPageCommand}" CommandParameter="DashboardView"/>
+        <Button Content="Go To Hierarchical"
+                Command="{Binding OpenPageCommand}" CommandParameter="HierarchicalView"/>
     </StackPanel>
 </UserControl>

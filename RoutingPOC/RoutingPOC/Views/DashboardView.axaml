@@ -6,7 +6,7 @@
              x:DataType="vm:DashboardViewModel"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="RoutingPOC.Views.DashboardView">
-    <StackPanel Margin="20">
+    <StackPanel Margin="20" HorizontalAlignment="Center">
         <TextBlock Text="Dashboard View" FontSize="24" />
         <Button Content="Go Back!" Command="{Binding GoBack}"></Button>
     </StackPanel>

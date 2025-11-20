@@ -1,0 +1,39 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:RoutingPOC.ViewModels"
+             xmlns:rxui="using:ReactiveUI"
+             xmlns:reactiveUi="http://reactiveui.net"
+             xmlns:routingPoc="clr-namespace:RoutingPOC"
+             x:DataType="vm:HierarchicalViewModel"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="RoutingPOC.Views.HierarchicalView">
+    
+    <Grid RowDefinitions="Auto,*">
+
+        <!-- TOP BUTTONS -->
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Spacing="10" Margin="10">
+            <Button Content="Open A"
+                    Command="{Binding OpenChildPageCommand}"
+                    CommandParameter="ChildAView" />
+
+            <Button Content="Open B"
+                    Command="{Binding OpenChildPageCommand}"
+                    CommandParameter="ChildBView" />
+
+            <Button Content="Open C"
+                    Command="{Binding OpenChildPageCommand}"
+                    CommandParameter="ChildCView" />
+        </StackPanel>
+
+        <!-- CHILD ROUTER REGION -->
+        <reactiveUi:RoutedViewHost Grid.Row="1" Router="{Binding Router}">
+            <reactiveUi:RoutedViewHost.ViewLocator>
+                <routingPoc:AppViewLocator />
+            </reactiveUi:RoutedViewHost.ViewLocator>
+        </reactiveUi:RoutedViewHost>
+
+    </Grid>
+    
+</UserControl>
