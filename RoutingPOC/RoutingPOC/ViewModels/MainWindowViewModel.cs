@@ -1,5 +1,5 @@
-﻿using System;
-using ReactiveUI;
+﻿using ReactiveUI;
+using System;
 
 namespace RoutingPOC.ViewModels;
 
@@ -9,17 +9,12 @@ public class MainWindowViewModel : ViewModelBase, IScreen
 
     public MainWindowViewModel()
     {
-        OpenPage("HomeView");
-    }
-    
-    public void OpenPage(string viewName)
-    {
-        var vm = CreateViewModel(viewName, this);
-        Router.Navigate.Execute(vm).Subscribe();
+        NavigateTo("Home");
     }
 
-    public void ClosePage()
+    public void NavigateTo(string pageName)
     {
-        Router.NavigateBack.Execute().Subscribe();
+        var vm = CreateViewModel(pageName, this);
+        Router.Navigate.Execute(vm);
     }
 }

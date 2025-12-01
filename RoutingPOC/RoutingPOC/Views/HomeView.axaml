@@ -9,8 +9,8 @@
     <StackPanel Spacing="10" Margin="20" HorizontalAlignment="Center">
         <TextBlock Text="Home View" FontSize="24" />
         <Button Content="Go To Dashboard"
-                Command="{Binding OpenPageCommand}" CommandParameter="DashboardView"/>
+                Command="{Binding NavigateTo}" CommandParameter="Dashboard"/>
         <Button Content="Go To Hierarchical"
-                Command="{Binding OpenPageCommand}" CommandParameter="HierarchicalView"/>
+                Command="{Binding NavigateTo}" CommandParameter="Hierarchical"/>
     </StackPanel>
 </UserControl>

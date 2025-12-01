@@ -1,23 +1,19 @@
-﻿using System.Reactive;
-using System.Reactive.Linq;
-using ReactiveUI;
+﻿using ReactiveUI;
+using System.Reactive;
 
 namespace RoutingPOC.ViewModels;
 
 public class HomeViewModel : ViewModelBase, IRoutableViewModel
 {
-    public string UrlPathSegment => "home";
+    public string UrlPathSegment => "Home";
     public IScreen HostScreen { get; }
 
-    public ReactiveCommand<string, Unit> OpenPageCommand { get; }
+    public ReactiveCommand<string, Unit> NavigateTo { get; }
 
-    public HomeViewModel(IScreen screen)
+    public HomeViewModel(IScreen hostScreen)
     {
-        HostScreen = screen;
-
-        OpenPageCommand = ReactiveCommand.Create<string>(viewName =>
-        {
-            ((MainWindowViewModel)HostScreen).OpenPage(viewName);
-        });
+        HostScreen = hostScreen;
+        NavigateTo = ReactiveCommand.Create<string>(pageName =>
+            HostScreen.Router.Navigate.Execute(CreateViewModel(pageName, HostScreen)));
     }
 }

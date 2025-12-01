@@ -17,16 +17,13 @@
             <!-- TOP BUTTONS -->
             <StackPanel Grid.Column="1" Orientation="Horizontal" Grid.Row="0" Spacing="10" Margin="10" HorizontalAlignment="Center">
                 <Button Content="Open A"
-                        Command="{Binding OpenChildPageCommand}"
-                        CommandParameter="ChildAView" />
+                        Command="{Binding OpenChildPage}" CommandParameter="ChildA" />
 
                 <Button Content="Open B"
-                        Command="{Binding OpenChildPageCommand}"
-                        CommandParameter="ChildBView" />
+                        Command="{Binding OpenChildPage}" CommandParameter="ChildB" />
 
                 <Button Content="Open C"
-                        Command="{Binding OpenChildPageCommand}"
-                        CommandParameter="ChildCView" />
+                        Command="{Binding OpenChildPage}" CommandParameter="ChildC" />
             </StackPanel>
         </Grid>
 

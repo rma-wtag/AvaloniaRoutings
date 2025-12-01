@@ -5,21 +5,20 @@ namespace RoutingPOC.ViewModels;
 
 public class DashboardViewModel : ViewModelBase, IRoutableViewModel
 {
-    public string UrlPathSegment => "dashboard";
+    public string UrlPathSegment => "Dashboard";
     public IScreen HostScreen { get; }
-    public ReactiveCommand<string, Unit> OpenPageCommand { get; }
+    public ReactiveCommand<string, Unit> NavigateTo { get; }
     public ReactiveCommand<Unit, Unit> GoBack { get; }
 
     public DashboardViewModel(IScreen screen)
     {
         HostScreen = screen;
-        OpenPageCommand = ReactiveCommand.Create<string>(viewName =>
-        {
-            ((MainWindowViewModel)HostScreen).OpenPage(viewName);
-        });
+        NavigateTo = ReactiveCommand.Create<string>(pageName =>
+            HostScreen.Router.Navigate.Execute(CreateViewModel(pageName, HostScreen)));
+
         GoBack = ReactiveCommand.Create(() =>
         {
-            ((MainWindowViewModel)HostScreen).ClosePage();
+            HostScreen.Router.NavigateBack.Execute();
         });
     }
 }

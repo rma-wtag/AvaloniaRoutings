@@ -1,20 +1,22 @@
-﻿using System;
-using ReactiveUI;
+﻿using ReactiveUI;
+using System;
 
 namespace RoutingPOC.ViewModels;
 
 public class ViewModelBase : ReactiveObject
 {
-    protected IRoutableViewModel CreateViewModel(string viewName, IScreen hostScreen)
+
+    protected IRoutableViewModel CreateViewModel(string pageName, IScreen hostScreen)
     {
-        string vmName = viewName.Replace("View", "ViewModel");
-
-        var asm = typeof(ViewModelBase).Assembly;
-        var vmType = asm.GetType($"RoutingPOC.ViewModels.{vmName}");
-
-        if (vmType == null)
-            throw new Exception($"ViewModel not found: {vmName}");
-
-        return (IRoutableViewModel)Activator.CreateInstance(vmType, hostScreen)!;
+        return pageName switch
+        {
+            "Home" => new HomeViewModel(hostScreen),
+            "Dashboard" => new DashboardViewModel(hostScreen),
+            "Hierarchical" => new HierarchicalViewModel(hostScreen),
+            "ChildA" => new ChildAViewModel(hostScreen),
+            "ChildB" => new ChildBViewModel(hostScreen),
+            "ChildC" => new ChildCViewModel(hostScreen),
+            _ => throw new ArgumentException($"Unsupported page name string: {pageName}")
+        };
     }
 }

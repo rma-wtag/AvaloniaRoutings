@@ -1,6 +1,6 @@
-﻿using System;
+﻿using ReactiveUI;
+using System;
 using System.Reactive;
-using ReactiveUI;
 
 namespace RoutingPOC.ViewModels;
 
@@ -11,23 +11,20 @@ public class HierarchicalViewModel : ViewModelBase, IRoutableViewModel , IScreen
     
     //child-view routing
     public RoutingState Router { get; } = new();
-    public ReactiveCommand<string, Unit> OpenChildPageCommand { get; }
+    public ReactiveCommand<String, Unit> OpenChildPage { get; }
     public ReactiveCommand<Unit, Unit> GoBack { get; }
-    
+
     public HierarchicalViewModel(IScreen screen)
     {
         HostScreen = screen;
-        
-        OpenChildPageCommand = ReactiveCommand.Create<string>(pageName =>
-        {
-            var vm = CreateViewModel(pageName, this);
-            Router.Navigate.Execute(vm).Subscribe();
-        });
-        
+
+        OpenChildPage = ReactiveCommand.Create<string>(pageName =>
+            Router.Navigate.Execute(CreateViewModel(pageName, this))
+        );
+
         GoBack = ReactiveCommand.Create(() =>
         {
-            ((MainWindowViewModel)HostScreen).ClosePage();
+            HostScreen.Router.NavigateBack.Execute();
         });
-        
     }
 }
